@@ -1,0 +1,189 @@
+	body {
+		background-color: #b3d5ed;
+	}
+
+	#sec2 {
+		background-color: #174274;
+		min-height: 200px;
+	}
+
+	#sec1 { 
+		background-image: url('optimized-ross-parmly-25230-unsplash.jpg');
+		background-position: top center;
+		background-position: center center;
+		background-size: cover; 
+		margin-bottom: -21px;
+	}
+
+	#sec1 h1 {
+		margin-top: 0px;
+	}
+
+	h1, 
+	h2 {
+		color: rgba(255,255,255,1);
+		text-shadow: 1px 1px 7px rgba(0,0,0,0.8);
+		font-size: 350%;
+	}
+
+	h1 {
+		margin-top: 20px;
+		margin-bottom: 0px;
+		font-weight: bold;
+	}
+
+	h2 {
+		margin-bottom: 50px;
+		margin-left: 50px;
+		font-size: 300%;
+	}
+
+	#mainlogo {
+		margin-top: -10px;
+		width: 350px;
+	}
+
+	#div-main-logo {
+		background-color: rgba(255,255,255,0.5);
+		margin-bottom: 20px;
+	}
+
+	#card-form1 {
+		background-color: rgba(255,255,255,0.9);
+		padding: 0px;
+		padding-bottom: 25px;
+	}
+
+	.card-panel .titulo {
+		font-size: 150%;
+	    font-weight: bold;
+	    background-color: #4097d3;
+	    text-shadow: 0px 0px 1px rgba(0,0,0,0.4);
+	    color: white;
+	    padding: 10px;
+	    margin-bottom: 20px;
+	}
+
+	#left-description {
+		font-size: 150%;
+		padding-left: 50px;  
+		color: rgba(255,255,255,1);
+		text-shadow: 1px 1px 7px rgba(0,0,0,0.8);    		
+	}
+
+	#left-description ul {
+		margin-left: 50px;
+	}
+
+	li::before {
+		content: "•"; color: white;
+	  	display: inline-block; width: 1em;
+	  	margin-left: -1em
+	}
+
+	.form-wrapper {
+		padding: 0px 30px;
+	}
+
+	.btn { 
+		background-color: #4097d3;
+	}
+
+	.btn:hover {
+		background-color: #174274;
+	}
+
+	.btn:focus {
+		background-color: #25a0f5;
+	}
+
+	.input.validate:focus {
+		border-bottom-color: #25a0f5;
+	}
+
+	.active { 
+		color: #174274!important;
+	}
+
+	footer {
+		width: 100%;
+		text-align: center;
+		color: #174274;
+		padding: 30px 0px 0px 0px;
+		margin-top: -20px;
+		background-color: #4097d3;
+	}
+
+	footer .material-icons {
+		font-size: 90%;
+	}
+
+	footer a {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	footer a:hover {
+		color: rgba(255,255,255,0.7);
+	}
+
+	#sec2 {
+		color: white;
+		padding-top: 20px;
+	}
+
+	#sec2 i {
+		color: #587ea3;
+		font-size: 500%;
+		text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+	}
+
+	#sec2 .row .col p:nth-child(3) {
+	    margin-top: -15px;
+	}
+
+	#badges img {
+		height: 30px;
+		margin: 10px 20px 0px 20px;
+	}
+
+	#badges {
+		background-color: rgba(255,255,255,0.6);
+		margin-top: 15px;
+	}
+
+	#sucesso-form-submit {
+		padding: 30px 10px;
+	}
+
+	#sucesso-form-submit div {
+		padding: 15px;
+		color: rgba(0,0,0,0.6);
+	}
+
+	#sucesso-form-submit i {
+		font-size: 250%;
+		font-weight: bold;
+		float: left;
+		padding-right: 20px;
+		color: white;
+		text-shadow: 0px 0px 1px rgba(0,0,0,0.3);
+	}
+	
+	@media only screen and (max-width: 600px) {
+		h1 {
+			font-size: 250%;
+		}
+  	#left-description {
+  		font-size: 120%;
+  		padding-left: 20px;  
+  		color: rgba(255,255,255,1);
+  		text-shadow: 1px 1px 7px rgba(0,0,0,0.8);    		
+  	}
+  	#left-description ul {
+  		margin-left: 20px;
+  	}			
+	}
+	.frasedestaque {
+		font-weight: bolder;
+	}

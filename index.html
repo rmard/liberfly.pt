@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<title>LiberFly</title>
+		<link rel="icon" sizes="32x32" href="/favicon.ico">
+		<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="nope!" onload="this.media='all'">
+    <link rel="stylesheet" href="index.css" media="nope!" onload="this.media='all'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body>
+		<section id="sec1">
+			<div id="div-main-logo" class="center-align">
+				<img id="mainlogo" src="logo-liberfly.png">
+			</div>
+			<div class="row">
+				<h1 class="center-align">TIVESTE PROBLEMAS NO TEU VOO?</h1>
+				<div class="col l6 m6 s12" id="left-description">
+					<p>Se tu tiveste, nos últimos 6 anos, um destes problemas:</p>
+					<ul>
+						<li>Cancelamento de voo</li>
+						<li>Atraso de voo</li>
+						<li>Overbooking</li>
+					</ul>
+					<p class="frasedestaque">Tu podes receber até <strong>600 euros</strong> de indemnização!</p>
+				</div>
+				<div class="col l6 m6 s12">
+					<div class="card-panel" id="card-form1">
+						<p class="center-align titulo">SOLICITA AGORA SUA INDEMNIZAÇÃO</p>
+						<div class="form-wrapper">
+		    				<form autocomplete="off" id="form-contato" class="">
+		    					<div class="center-align">
+									<fb:login-button 
+									  data-button-type="continue_with"
+									  data-use-continue-as="true"
+									  scope="public_profile,email"
+									  onlogin="checkLoginState();">
+									</fb:login-button>
+								</div>
+		      					<div class="row">
+		        					<div class="input-field col s12">
+		          						<input id="nome" type="text" class="validate" required>
+		          						<label for="nome">Teu nome</label>
+		        					</div>
+		        					<div class="input-field col s12">
+		          						<input id="celular" type="text" class="validate">
+		          						<label for="celular">Facebook ou Telemóvel (opcional)</label>
+		        					</div>	        					
+		        					<div class="input-field col s12">
+		          						<input id="email" type="email" class="validate" required>
+		          						<label for="email">Teu e-mail</label>
+		        					</div>
+								</div>		
+								<div class="center-align">
+									<button id="btn-enviar" class="btn btn-large">solicitar indemnização!</button>
+								</div>					
+							</form>
+							<div id="sucesso-form-submit" class="hide">
+								<div class="green lighten-2 z-depth-1">
+									<i class="material-icons" aria-hidden="true">check</i>
+									<strong>PRONTO!</strong>
+									<br>
+									Em até 48 horas nossa equipa entrará em contato.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="sec2">
+			<div class="row">
+				<div class="col s6 m6 l3 center-align">
+					<i class="material-icons" aria-hidden="true">send</i>
+					<p>Envia tua reclamação e</p>
+					<p>documentos por este site</p>
+				</div>
+				<div class="col s6 m6 l3 center-align">
+					<i class="material-icons" aria-hidden="true">gavel</i>
+					<p>Nossa equipa avalia o caso</p>
+					<p>e negocia com a cia aérea</p>
+				</div>	
+				<div class="col s6 m6 l3 center-align">
+					<i class="material-icons" aria-hidden="true">schedule</i>
+					<p>Aguarda o procedimento de mediação</p>
+					<p>com duração média de um mês</p>
+				</div>									
+				<div class="col s6 m6 l3 center-align">
+					<i class="material-icons" aria-hidden="true">attach_money</i>
+					<p>Receba tua indemnização</p> 
+					<p>até 600 euros</p>
+				</div>
+			</div>
+		</section>
+		<footer>
+			Site português em construção 
+			&bullet; <a href="https://liberfly.com.br" target="_blank">Site brasileiro <i class="material-icons">open_in_new</i></a>
+			<br><br>
+			<!-- https://ivansugerman.com/soc.js/ -->
+			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/SocialIcons/1.0.1/soc.min.css">
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/SocialIcons/1.0.1/soc.min.js"></script>		
+			<div class="soc" data-buttoncolor="#174274" data-iconcolor="#EEE">
+				<a href="https://facebook.com/liberflypt" class="soc-facebook" title="Facebook"></a>
+				<a href="https://instagram.com/liberflypt" class="soc-instagram" title="Instagram"></a>
+				<a href="https://pt.linkedin.com/company/liberfly" class="soc-linkedin" title="Linkedin"></a>
+			</div>
+			<br>
+			LiberFly - Mediando soluções &copy; 2018
+			<div id="badges">
+				<a target="_blank" href="http://www.google.com/safebrowsing/diagnostic?site=https://liberfly.pt/"><img src="logo-safebrowsing.png"></a>
+				<a target="_blank" href="https://safeweb.norton.com/report/show?url=https://liberfly.pt/"><img src="logo-norton.png"></a>
+			</div>
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	  <script src="index.js"></script>
+	</body>
+</html>
+    
+
+    
