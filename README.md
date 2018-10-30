@@ -2,7 +2,7 @@
 
 LiberFly.pt's first landing page, live at:
 
-[https://liberfly.pt] (https://liberfly.pt)
+[https://liberfly.pt](https://liberfly.pt)
 
 ## External libraries
 - jQuery
@@ -10,5 +10,4 @@ LiberFly.pt's first landing page, live at:
 
 ## Photo credits
 
-[https://unsplash.com/photos/rf6ywHVkrlY] (Photo by Ross Parmly on Unsplash)
-
+- [Photo by Ross Parmly on Unsplash](https://unsplash.com/photos/rf6ywHVkrlY)
