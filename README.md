@@ -5,8 +5,9 @@ LiberFly.pt's first landing page, live at:
 [https://liberfly.pt](https://liberfly.pt)
 
 ## External libraries
-- jQuery
-- MaterializeCSS
+- [jQuery](https://jquery.com/)
+- [MaterializeCSS](http://materializecss.com)
+- [SocialIcons](https://ivansugerman.com/soc.js/)
 
 ## Photo credits
 
