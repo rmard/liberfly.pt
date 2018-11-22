@@ -1,3 +1,7 @@
+const PT = 'PT';
+const EN = 'EN';
+var lang = PT;
+
 $("#nome").focus();
 $.get("https://api.ipgeolocation.io/ipgeo?apiKey=9bc9dd5f020042168b9e7f21c7b645ce", function(r){
   $("#celular").val(r.calling_code);
@@ -82,3 +86,19 @@ function statusChangeCallback(response)
     
   }
 }
+$(document).ready(function(){
+  $('select').formSelect();
+});
+
+const toggleLang = (forceLang) => {
+  if(forceLang!==undefined)
+    lang = forceLang;
+  else
+    lang = ((lang===PT)?EN:PT);
+
+  i18n.strings.map((str)=>{
+    document.getElementById(str.id).innerHTML = str[lang];
+  });
+}
+      
+$(".flag-wrapper").click(()=>toggleLang());
