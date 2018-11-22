@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import i18n from './i18n';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 class App extends Component {
   state = {
     lang: 'EN',
+    name: '',
+    email: '',
   }
   componentDidMount = () => {
     let browserLang = navigator.language || navigator.userLanguage;
@@ -17,65 +20,89 @@ class App extends Component {
       lang: (prevState.lang==='EN')?'PT':'EN'
     }));
   }
+  fbCallback = (response) => {
+    console.log("statusChangeCallback", response);
+    if(response.status==='connected')
+    {     
+      fetch('https://graph.facebook.com/'+response.authResponse.userID+'?fields=link,name,email&access_token='+response.authResponse.accessToken)
+      .then(function(r) {
+        console.log(r);
+        this.setState({
+          name: r.name,
+          email: r.email
+        })
+      });
+    }
+  }
+
+  handleKeyPress = (e) => {
+    let newState = {};
+    newState[e.target.id] = e.target.value;
+    console.log(e.target.value);
+    this.setState(newState);
+  }
+
   render() {
     var lang = this.state.lang;
     return (
       <div className="App">
         <section id="sec1">
-          <div id="div-main-logo" class="center-align">
-            <img id="mainlogo" src="logo-liberfly.png"/>
-            <div class='flag-wrapper z-depth-1' onClick={this.toggleLang}>
+          <div id="div-main-logo" className="center-align">
+            <img id="mainlogo" src="logo-liberfly.png" alt='LiberFly'/>
+            <div className='flag-wrapper z-depth-1' onClick={this.toggleLang}>
               <img src={`flag-${lang==='EN'?'pt':'uk'}.png`} title='Switch language' alt="Switch language"/>
             </div>
           </div>
-          <div class="row">
-            <h1 class="center-align">{i18n.title[lang]}</h1>
-            <div class="col l6 m6 s12" id="left-description">
+          <div className="row">
+            <h1 className="center-align">{i18n.title[lang]}</h1>
+            <div className="col l6 m6 s12" id="left-description">
               <p>{i18n.maintext[lang]}</p>
               <ul>
                 <li>{i18n.issue1[lang]}</li>
                 <li>{i18n.issue2[lang]}</li>
                 <li>{i18n.issue3[lang]}</li>
               </ul>
-              <p class="frasedestaque">{i18n.highlighttext[lang]}</p>
+              <p className="frasedestaque">{i18n.highlighttext[lang]}</p>
             </div>
-            <div class="col l6 m6 s12">
-              <div class="card-panel" id="card-form1">
-                <p class="center-align titulo">{i18n.formtitle[lang]}</p>
-                <div class="form-wrapper">
-                    <form autocomplete="off" id="form-contato" class="">
-                      <div class="center-align">
-                      {/*
-                      <fb:login-button 
-                        data-button-type="continue_with"
-                        data-use-continue-as="true"
-                        scope="public_profile,email"
-                        onlogin="checkLoginState();">
-                      </fb:login-button>
-                      */
-                    }
+            <div className="col l6 m6 s12">
+              <div className="card-panel" id="card-form1">
+                <p className="center-align titulo">{i18n.formtitle[lang]}</p>
+                <div className="form-wrapper">
+                  <form autoComplete="off" id="form-contato" className="">
+                    <div className="center-align">
+                      {(this.state.name==='' && this.state.email==='')?(
+                      <FacebookLogin
+                        appId="262052264452670"
+                        autoLoad={true}
+                        fields="name,email,picture"
+                        onClick={''}
+                        callback={this.fbCallback} 
+                        render={renderProps => (
+                          <img className='pointer' alt='Continue with Facebook' onClick={renderProps.onClick} src='./fbbutton.png'/>
+                        )}/>    
+                      ):''}
                     </div>
-                        <div class="row">
-                          <div class="input-field col s12">
-                              <input id="nome" type="text" class="validate" required/>
-                              <label for="nome">{i18n.labelname[lang]}</label>
-                          </div>
-                          <div class="input-field col s12">
-                              <input id="celular" type="text" class="validate"/>
-                              <label for="celular">{i18n.labelphone[lang]}</label>
-                          </div>                    
-                          <div class="input-field col s12">
-                              <input id="email" type="email" class="validate" required/>
-                              <label for="email">{i18n.labelemail[lang]}</label>
-                          </div>
+                    <div className="row">
+                      <div className="input-field col s12">
+                        <input id="name" type="text" className="validate" required value={this.state.name} onChange={this.handleKeyPress}/>
+                        <label htmlFor="name">{i18n.labelname[lang]}</label>
+                      </div>
+                      <div className="input-field col s12">
+                        <input id="celular" type="text" className="validate"/>
+                        <label htmlFor="celular">{i18n.labelphone[lang]}</label>
+                      </div>                    
+                      <div className="input-field col s12">
+                        <input id="email" type="email" className="validate" required value={this.state.email} onChange={this.handleKeyPress}/>
+                        <label htmlFor="email">{i18n.labelemail[lang]}</label>
+                      </div>
                     </div>    
-                    <div class="center-align">
-                      <button id="btn-enviar" class="btn btn-large">{i18n.btnsend[lang]}</button>
+                    <div className="center-align">
+                      <button id="btn-enviar" className="btn btn-large">{i18n.btnsend[lang]}</button>
                     </div>          
                   </form>
-                  <div id="sucesso-form-submit" class="hide">
-                    <div class="green lighten-2 z-depth-1">
-                      <i class="material-icons" aria-hidden="true">check</i>
+                  <div id="sucesso-form-submit" className="hide">
+                    <div className="green lighten-2 z-depth-1">
+                      <i className="material-icons" aria-hidden="true">check</i>
                       <strong>PRONTO!</strong>
                       <br/>
                       Em até 48 horas nossa equipa entrará em contato.
@@ -87,24 +114,24 @@ class App extends Component {
           </div>
         </section>
         <section id="sec2">
-          <div class="row">
-            <div class="col s6 m6 l3 center-align">
-              <i class="material-icons" aria-hidden="true">send</i>
+          <div className="row">
+            <div className="col s6 m6 l3 center-align">
+              <i className="material-icons" aria-hidden="true">send</i>
               <p>{i18n.step1[lang][0]}</p>
               <p>{i18n.step1[lang][1]}</p>
             </div>
-            <div class="col s6 m6 l3 center-align">
-              <i class="material-icons" aria-hidden="true">gavel</i>
+            <div className="col s6 m6 l3 center-align">
+              <i className="material-icons" aria-hidden="true">gavel</i>
               <p>{i18n.step2[lang][0]}</p>
               <p>{i18n.step2[lang][1]}</p>
             </div>  
-            <div class="col s6 m6 l3 center-align">
-              <i class="material-icons" aria-hidden="true">schedule</i>
+            <div className="col s6 m6 l3 center-align">
+              <i className="material-icons" aria-hidden="true">schedule</i>
               <p>{i18n.step3[lang][0]}</p>
               <p>{i18n.step3[lang][1]}</p>
             </div>                  
-            <div class="col s6 m6 l3 center-align">
-              <i class="material-icons" aria-hidden="true">attach_money</i>
+            <div className="col s6 m6 l3 center-align">
+              <i className="material-icons" aria-hidden="true">attach_money</i>
               <p>{i18n.step4[lang][0]}</p>
               <p>{i18n.step4[lang][1]}</p>
             </div>
@@ -112,20 +139,20 @@ class App extends Component {
         </section>
         <footer>
           {i18n.siteconstruction[lang]}  
-           • <a href="https://liberfly.com.br" target="_blank">{i18n.braziliansite[lang]} <i class="material-icons">open_in_new</i></a>
+           • <a href="https://liberfly.com.br" target="_blank" rel='noopener noreferrer'>{i18n.braziliansite[lang]} <i className="material-icons">open_in_new</i></a>
           <br/><br/>
           {//https://ivansugerman.com/soc.js/
           }    
-          <div class="soc" data-buttoncolor="#174274" data-iconcolor="#EEE">
-            <a href="https://facebook.com/liberflypt" class="soc-facebook" title="Facebook"></a>
-            <a href="https://instagram.com/liberflypt" class="soc-instagram" title="Instagram"></a>
-            <a href="https://pt.linkedin.com/company/liberfly" class="soc-linkedin" title="Linkedin"></a>
+          <div className="soc" data-buttoncolor="#174274" data-iconcolor="#EEE">
+            <a href="https://facebook.com/liberflypt" className="soc-facebook" title="Facebook"></a>
+            <a href="https://instagram.com/liberflypt" className="soc-instagram" title="Instagram"></a>
+            <a href="https://pt.linkedin.com/company/liberfly" className="soc-linkedin" title="Linkedin"></a>
           </div>
           <br/>
           LiberFly - Mediando soluções &copy; 2018
           <div id="badges">
-            <a target="_blank" href="http://www.google.com/safebrowsing/diagnostic?site=https://liberfly.pt/"><img src="logo-safebrowsing.png"/></a>
-            <a target="_blank" href="https://safeweb.norton.com/report/show?url=https://liberfly.pt/"><img src="logo-norton.png"/></a>
+            <a target="_blank" rel='noopener noreferrer' href="http://www.google.com/safebrowsing/diagnostic?site=https://liberfly.pt/"><img src="logo-safebrowsing.png"/></a>
+            <a target="_blank" rel='noopener noreferrer' href="https://safeweb.norton.com/report/show?url=https://liberfly.pt/"><img src="logo-norton.png"/></a>
           </div>
         </footer>
       </div>

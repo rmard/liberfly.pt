@@ -3,6 +3,10 @@
     background-color: #b3d5ed;
   }
 
+  .pointer {
+    cursor: pointer;
+  }
+
   #sec2 {
     background-color: #174274;
     min-height: 200px;
