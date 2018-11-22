@@ -22,15 +22,11 @@ class App extends Component {
   }
   fbCallback = (response) => {
     console.log("statusChangeCallback", response);
-    if(response.status==='connected')
+    if(response.name)
     {     
-      fetch('https://graph.facebook.com/'+response.authResponse.userID+'?fields=link,name,email&access_token='+response.authResponse.accessToken)
-      .then(function(r) {
-        console.log(r);
-        this.setState({
-          name: r.name,
-          email: r.email
-        })
+      this.setState({
+        name: response.name,
+        email: response.email      
       });
     }
   }
@@ -85,7 +81,7 @@ class App extends Component {
                     <div className="row">
                       <div className="input-field col s12">
                         <input id="name" type="text" className="validate" required value={this.state.name} onChange={this.handleKeyPress}/>
-                        <label htmlFor="name">{i18n.labelname[lang]}</label>
+                        <label htmlFor="name" class={this.state.name!=="" && 'active'}>{i18n.labelname[lang]}</label>
                       </div>
                       <div className="input-field col s12">
                         <input id="celular" type="text" className="validate"/>
@@ -93,7 +89,7 @@ class App extends Component {
                       </div>                    
                       <div className="input-field col s12">
                         <input id="email" type="email" className="validate" required value={this.state.email} onChange={this.handleKeyPress}/>
-                        <label htmlFor="email">{i18n.labelemail[lang]}</label>
+                        <label htmlFor="email" class={this.state.email!=="" && 'active'}>{i18n.labelemail[lang]}</label>
                       </div>
                     </div>    
                     <div className="center-align">
