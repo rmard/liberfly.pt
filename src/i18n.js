@@ -67,5 +67,17 @@ export default  {
   braziliansite: {
     EN: 'Would you like to visit our brazilian site?',
     PT: 'Site brasileiro',
-  }                      
+  },
+  donetitle: {
+    EN: 'SUCCESS!',
+    PT: 'PRONTO!',
+  },
+  donetext: {
+    EN: 'Our team will contact you shortly.',
+    PT: 'Em até 48 horas nossa equipa entrará em contato.',
+  },
+  posterror: {
+    EN: 'An error occurred. Please try again.',
+    PT: 'Um erro aconteceu. Por favor, tente novamente.',
+  }                
 };

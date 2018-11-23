@@ -8,6 +8,9 @@ class App extends Component {
     lang: 'EN',
     name: '',
     email: '',
+    phone: '',
+    sending: false,
+    success: false,
   }
   componentDidMount = () => {
     let browserLang = navigator.language || navigator.userLanguage;
@@ -34,8 +37,29 @@ class App extends Component {
   handleKeyPress = (e) => {
     let newState = {};
     newState[e.target.id] = e.target.value;
-    console.log(e.target.value);
     this.setState(newState);
+  }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({sending: true});
+    let formdata = new FormData();
+    formdata.append('nome', this.state.name);
+    formdata.append('celular', this.state.phone);
+    formdata.append('email', this.state.email);
+    fetch("/processa.php", {
+      method: "POST",
+      body: formdata
+    })
+    .then((res)=>{
+      this.setState({sending: false});
+      if(res.status===200)
+        this.setState({success: true});
+      else
+        alert(i18n.posterror[this.state.lang]);
+    })
+    .catch((res)=>{
+      this.setState({sending: false});
+    })
   }
 
   render() {
@@ -64,7 +88,7 @@ class App extends Component {
               <div className="card-panel" id="card-form1">
                 <p className="center-align titulo">{i18n.formtitle[lang]}</p>
                 <div className="form-wrapper">
-                  <form autoComplete="off" id="form-contato" className="">
+                  <form autoComplete="off" id="form-contato" className={this.state.success?'hide':''} onSubmit={this.handleSubmit}>
                     <div className="center-align">
                       {(this.state.name==='' && this.state.email==='')?(
                       <FacebookLogin
@@ -84,8 +108,8 @@ class App extends Component {
                         <label htmlFor="name" class={this.state.name!=="" && 'active'}>{i18n.labelname[lang]}</label>
                       </div>
                       <div className="input-field col s12">
-                        <input id="celular" type="text" className="validate"/>
-                        <label htmlFor="celular">{i18n.labelphone[lang]}</label>
+                        <input id="phone" type="text" className="validate" value={this.state.phone} onChange={this.handleKeyPress}/>
+                        <label htmlFor="phone">{i18n.labelphone[lang]}</label>
                       </div>                    
                       <div className="input-field col s12">
                         <input id="email" type="email" className="validate" required value={this.state.email} onChange={this.handleKeyPress}/>
@@ -93,15 +117,15 @@ class App extends Component {
                       </div>
                     </div>    
                     <div className="center-align">
-                      <button id="btn-enviar" className="btn btn-large">{i18n.btnsend[lang]}</button>
+                      <button id="btn-enviar" className={`btn btn-large ${this.state.sending?'disabled':''}`}>{i18n.btnsend[lang]}</button>
                     </div>          
                   </form>
-                  <div id="sucesso-form-submit" className="hide">
+                  <div id="sucesso-form-submit" className={this.state.success?'':'hide'}>
                     <div className="green lighten-2 z-depth-1">
                       <i className="material-icons" aria-hidden="true">check</i>
-                      <strong>PRONTO!</strong>
+                      <strong>{i18n.donetitle[lang]}</strong>
                       <br/>
-                      Em até 48 horas nossa equipa entrará em contato.
+                      {i18n.donetext[lang]}
                     </div>
                   </div>
                 </div>
