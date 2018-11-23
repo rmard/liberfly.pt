@@ -32,9 +32,13 @@ export default  {
     EN: 'Your name',
     PT: 'Teu nome',
   },
+  labelsocials: {
+    EN: 'Social network (link)',
+    PT: 'Rede social (link)',
+  },  
   labelphone: {
-    EN: 'Facebook or phone (optional)',
-    PT: 'Facebook ou Telemóvel (opcional)',
+    EN: 'Phone number',
+    PT: 'Telemóvel',
   },
   labelemail: {
     EN: 'Email address',
@@ -45,7 +49,7 @@ export default  {
     PT: 'SOLICITAR INDEMNIZAÇÃO!',    
   },  
   step1: {
-    EN: ['Submit your claim and', 'documents using this website'],
+    EN: ['Submit your claim and', 'documentation'],
     PT: ['Envia tua reclamação e', 'documentos por este site'],
   },   
   step2: {
@@ -53,11 +57,11 @@ export default  {
     PT: ['Nossa equipa avalia o caso', 'e negocia com a cia aérea'],
   },   
   step3: {
-    EN: ['You sit back and relax', 'for about a month'],
+    EN: ['Your claim will be processed', 'within a month'],
     PT: ['Aguarda o procedimento de mediação', 'com duração média de um mês'],
   },   
   step4: {
-    EN: ['We\'ll send you the money', 'of up to 600 euros'],
+    EN: ['We transfer your money', 'directly to you (up to €600)'],
     PT: ['Receba tua indemnização', 'até 600 euros'],
   },           
   siteconstruction: {
@@ -79,5 +83,13 @@ export default  {
   posterror: {
     EN: 'An error occurred. Please try again.',
     PT: 'Um erro aconteceu. Por favor, tente novamente.',
+  },
+  about: {
+    EN: 'ABOUT US',
+    PT: 'SOBRE A LIBERFLY'
+  },
+  abouttext: {
+    EN: ['LiberFly is a startup founded in 2016 and focused on resolving flight issues.', 'We help passengers to get fair compensations for issues caused by airlines.'],
+    PT: ['Fundada em 2016, somos uma startup focada na resolução de conflitos entre consumidores e companhias aéreas.', 'Buscamos uma justa indenização por meio de mediação para aqueles que sofreram arbitrariedades de companhias aéreas.']
   }                
 };

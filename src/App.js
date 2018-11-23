@@ -8,6 +8,7 @@ class App extends Component {
     lang: 'EN',
     name: '',
     email: '',
+    socials: '',
     phone: '',
     sending: false,
     success: false,
@@ -44,7 +45,7 @@ class App extends Component {
     this.setState({sending: true});
     let formdata = new FormData();
     formdata.append('nome', this.state.name);
-    formdata.append('celular', this.state.phone);
+    formdata.append('celular', this.state.socials + " " + this.state.phone);
     formdata.append('email', this.state.email);
     fetch("/processa.php", {
       method: "POST",
@@ -107,7 +108,11 @@ class App extends Component {
                         <input id="name" type="text" className="validate" required value={this.state.name} onChange={this.handleKeyPress}/>
                         <label htmlFor="name" class={this.state.name!=="" && 'active'}>{i18n.labelname[lang]}</label>
                       </div>
-                      <div className="input-field col s12">
+                      <div className="input-field col s6">
+                        <input id="socials" type="text" className="validate" value={this.state.socials} onChange={this.handleKeyPress}/>
+                        <label htmlFor="socials">{i18n.labelsocials[lang]}</label>
+                      </div>                        
+                      <div className="input-field col s6">
                         <input id="phone" type="text" className="validate" value={this.state.phone} onChange={this.handleKeyPress}/>
                         <label htmlFor="phone">{i18n.labelphone[lang]}</label>
                       </div>                    
@@ -157,6 +162,27 @@ class App extends Component {
             </div>
           </div>
         </section>
+        <section id="about">
+          <div className='row'>
+            <div className='col l6 offset-l2 justify'>
+              <h2><i className='material-icons rotateplane'>airplanemode_active</i> {i18n.about[lang]}</h2>
+              <div id='about-picture' className='right z-depth-1 hide-on-large-only'>
+              </div>                 
+              <p>
+                {i18n.abouttext[lang][0]}              
+              </p>
+              <p>
+                <strong>
+                {i18n.abouttext[lang][1]}
+                </strong>
+              </p>             
+            </div>
+            <div className='col l2 justify'>
+              <div id='about-picture' className='z-depth-1 hide-on-med-and-down'>
+              </div>
+            </div>
+          </div>       
+        </section>
         <footer>
           {i18n.siteconstruction[lang]}  
            • <a href="https://liberfly.com.br" target="_blank" rel='noopener noreferrer'>{i18n.braziliansite[lang]} <i className="material-icons">open_in_new</i></a>
@@ -166,7 +192,8 @@ class App extends Component {
           <div className="soc" data-buttoncolor="#174274" data-iconcolor="#EEE">
             <a href="https://facebook.com/liberflypt" className="soc-facebook" title="Facebook"></a>
             <a href="https://instagram.com/liberflypt" className="soc-instagram" title="Instagram"></a>
-            <a href="https://pt.linkedin.com/company/liberfly" className="soc-linkedin" title="Linkedin"></a>
+            {//<a href="https://pt.linkedin.com/company/liberfly" className="soc-linkedin" title="Linkedin"></a>
+            } 
           </div>
           <br/>
           LiberFly - Mediando soluções &copy; 2018

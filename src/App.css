@@ -7,9 +7,21 @@
     cursor: pointer;
   }
 
+  .rotateplane {
+    transform: rotate(90deg) translateX(3px);
+    font-size: 90%;
+    opacity: 0.8;
+  }
+
+  .justify {
+    text-align: justify;
+    text-justify: inter-word;    
+  }
+
   #sec2 {
     background-color: #174274;
     min-height: 200px;
+    margin-bottom: -20px;
   }
 
   #sec1 { 
@@ -24,8 +36,7 @@
     margin-top: 0px;
   }
 
-  h1, 
-  h2 {
+  h1 {
     color: rgba(255,255,255,1);
     text-shadow: 1px 1px 7px rgba(0,0,0,0.8);
     font-size: 350%;
@@ -38,9 +49,14 @@
   }
 
   h2 {
-    margin-bottom: 50px;
-    margin-left: 50px;
-    font-size: 300%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 140%;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(23, 66, 116, 0.3);
+    display: inline-block;
+    padding-bottom: 8px;
+    padding-right: 10px;
   }
 
   #mainlogo {
@@ -162,10 +178,76 @@
   #sec2 .row .col p:nth-child(3) {
       margin-top: -15px;
   }
+  /*
+  https://unsplash.com/photos/yQorCngxzwI
+  */
+  @keyframes clouds {
+    0% {
+      background-position: 0% 70%;
+    }
+    50% {
+      background-position: 100% 80%;
+    }
+    100% {
+      background-position: 0% 70%;
+    }      
+  }  
+  #about {
+    /*
+    https://unsplash.com/photos/yQorCngxzwI
+    */
+    color: #174274;
+    background-image: url(/taylor-van-riper-477124-unsplash_.jpg);
+    background-size: cover;
+    background-position: 0% 70%;
+    animation-timing-function: linear;
+    animation-name: clouds;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;    
+  }
+
+  #about .row {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 110%;
+  }
+
+  #about-picture {
+    margin-top: -5px;
+    width: 170px;
+    height: 170px;
+    border-radius: 85px;
+    border: 3px solid white;
+    background-size: cover;
+    background-position: right;
+    /*
+    https://unsplash.com/photos/5fNmWej4tAA 
+    */
+    background-image: url(/helloquence-61189-unsplash.jpg);
+  }
+
+  @media screen and (max-width: 992px) {
+    #about-picture {
+      margin-top: 20px;
+      margin-left: 10px;
+      margin-right: -10px;
+    }
+    #about {
+      background-position: 40% 90%;
+    }
+  }
 
   #badges img {
     height: 30px;
     margin: 10px 20px 0px 20px;
+  }
+
+  .dots {
+    opacity: 0.5;
+    transform: scaleX(2);
+    letter-spacing: 1px;
+    text-align: center;
+    margin: -15px 0px -5px 0px;
   }
 
   #badges {
