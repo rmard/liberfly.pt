@@ -5,7 +5,7 @@ export default  {
       PT: 'TIVESTE PROBLEMAS NO TEU VOO?',
   },
   maintext: {
-    EN: 'If you had, in the last 6 years, one of these issues:',
+    EN: 'If you had one of these issues in the last 6 years:',
     PT: 'Se tu tiveste, nos últimos 6 anos, um destes problemas:',
   },
   formtitle: {
@@ -25,7 +25,7 @@ export default  {
     PT: 'Overbooking', 
   },
   highlighttext: {
-    EN: 'You can get a compensation up to 600 euros!',
+    EN: 'You may be compensated up to 600 Euros!',
     PT: 'Tu podes receber até 600 euros de indemnização!',
   },
   labelname: {
@@ -57,7 +57,7 @@ export default  {
     PT: ['Aguarda o procedimento de mediação', 'com duração média de um mês'],
   },   
   step4: {
-    EN: ['We send you the money', 'up to 600 euros'],
+    EN: ['We\'ll send you the money', 'of up to 600 euros'],
     PT: ['Receba tua indemnização', 'até 600 euros'],
   },           
   siteconstruction: {
