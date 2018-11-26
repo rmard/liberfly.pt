@@ -109,11 +109,11 @@ class App extends Component {
                         <label htmlFor="name" class={this.state.name!=="" && 'active'}>{i18n.labelname[lang]}</label>
                       </div>
                       <div className="input-field col s6">
-                        <input id="socials" type="text" className="validate" value={this.state.socials} onChange={this.handleKeyPress}/>
+                        <input id="socials" type="text" className="validate" required value={this.state.socials} onChange={this.handleKeyPress}/>
                         <label htmlFor="socials">{i18n.labelsocials[lang]}</label>
                       </div>                        
                       <div className="input-field col s6">
-                        <input id="phone" type="text" className="validate" value={this.state.phone} onChange={this.handleKeyPress}/>
+                        <input id="phone" type="text" className="validate" required value={this.state.phone} onChange={this.handleKeyPress}/>
                         <label htmlFor="phone">{i18n.labelphone[lang]}</label>
                       </div>                    
                       <div className="input-field col s12">
