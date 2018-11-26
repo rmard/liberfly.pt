@@ -69,7 +69,7 @@ export default  {
     PT: 'Site português em construção ',
   },
   braziliansite: {
-    EN: 'Would you like to visit our brazilian site?',
+    EN: 'Would you like to visit our Brazilian site?',
     PT: 'Site brasileiro',
   },
   donetitle: {
@@ -90,6 +90,6 @@ export default  {
   },
   abouttext: {
     EN: ['LiberFly is a startup founded in 2016 and focused on resolving flight issues.', 'We help passengers to get fair compensations for issues caused by airlines.'],
-    PT: ['Fundada em 2016, somos uma startup focada na resolução de conflitos entre consumidores e companhias aéreas.', 'Buscamos uma justa indenização por meio de mediação para aqueles que sofreram arbitrariedades de companhias aéreas.']
+    PT: ['Fundada em 2016, somos uma startup focada na resolução de conflitos entre consumidores e companhias aéreas.', 'Buscamos uma justa imndenização por meio de mediação para aqueles que sofreram arbitrariedades de companhias aéreas.']
   }                
 };
