@@ -164,7 +164,7 @@ class App extends Component {
         </section>
         <section id="about">
           <div className='row'>
-            <div className='col l6 offset-l2 justify'>
+            <div className='col l6 m9 offset-m1 offset-l2 justify'>
               <h2><i className='material-icons rotateplane'>airplanemode_active</i> {i18n.about[lang]}</h2>
               <div id='about-picture' className='right z-depth-1 hide-on-large-only'>
               </div>                 
@@ -177,7 +177,7 @@ class App extends Component {
                 </strong>
               </p>             
             </div>
-            <div className='col l2 justify'>
+            <div className='col l2 m1 justify'>
               <div id='about-picture' className='z-depth-1 hide-on-med-and-down'>
               </div>
             </div>

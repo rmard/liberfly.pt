@@ -60,8 +60,9 @@
   }
 
   #mainlogo {
-    margin-top: -10px;
-    width: 350px;
+    margin-left: -20px;
+    margin-top: 0px;
+    width: 320px;
   }
 
   #div-main-logo {
@@ -286,6 +287,18 @@
     #left-description ul {
       margin-left: 20px;
     }     
+    .flag-wrapper {
+      top: 5px;
+      width: 25px;
+      height: 19px;
+      border: 1px solid white;
+      border-radius: 0px;
+    }
+
+    .flag-wrapper img {
+      position: absolute;
+      right: 0px;
+    }
   }
   .frasedestaque {
     font-weight: bolder;
