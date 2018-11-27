@@ -5,11 +5,13 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 
 class App extends Component {
   state = {
+    step: 1,
     lang: 'EN',
     name: '',
     email: '',
     socials: '',
     phone: '',
+    details: '',
     sending: false,
     success: false,
   }
@@ -42,11 +44,17 @@ class App extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
+    if(this.state.step===1)
+    {
+      setTimeout(()=>document.getElementById('details').focus(), 500);
+      return this.setState({step: 2});
+    }
     this.setState({sending: true});
     let formdata = new FormData();
     formdata.append('nome', this.state.name);
     formdata.append('celular', this.state.socials + " " + this.state.phone);
     formdata.append('email', this.state.email);
+    formdata.append('details', this.state.details);
     fetch("/processa.php", {
       method: "POST",
       body: formdata
@@ -116,21 +124,31 @@ class App extends Component {
                       ):''}
                     </div>
                     <div className="row">
-                      <div className="input-field col s12">
-                        <input id="name" type="text" className="validate" required value={this.state.name} onChange={this.handleKeyPress}/>
-                        <label htmlFor="name" class={this.state.name!=="" && 'active'}>{i18n.labelname[lang]}</label>
+                      <div id='formstep1' className={this.state.step!==1 && 'hide'}>
+                        <div className="input-field col s12">
+                          <input id="name" type="text" className="validate" required value={this.state.name} onChange={this.handleKeyPress}/>
+                          <label htmlFor="name" class={this.state.name!=="" && 'active'}>{i18n.labelname[lang]}</label>
+                        </div>
+                        <div className="input-field col s6">
+                          <input id="socials" type="text" className="validate" required value={this.state.socials} onChange={this.handleKeyPress}/>
+                          <label htmlFor="socials">{i18n.labelsocials[lang]}</label>
+                        </div>                        
+                        <div className="input-field col s6">
+                          <input id="phone" type="text" className="validate" required value={this.state.phone} onChange={this.handleKeyPress}/>
+                          <label htmlFor="phone">{i18n.labelphone[lang]}</label>
+                        </div>                    
+                        <div className="input-field col s12">
+                          <input id="email" type="email" className="validate" required value={this.state.email} onChange={this.handleKeyPress}/>
+                          <label htmlFor="email" class={this.state.email!=="" && 'active'}>{i18n.labelemail[lang]}</label>
+                        </div>
                       </div>
-                      <div className="input-field col s6">
-                        <input id="socials" type="text" className="validate" required value={this.state.socials} onChange={this.handleKeyPress}/>
-                        <label htmlFor="socials">{i18n.labelsocials[lang]}</label>
-                      </div>                        
-                      <div className="input-field col s6">
-                        <input id="phone" type="text" className="validate" required value={this.state.phone} onChange={this.handleKeyPress}/>
-                        <label htmlFor="phone">{i18n.labelphone[lang]}</label>
-                      </div>                    
-                      <div className="input-field col s12">
-                        <input id="email" type="email" className="validate" required value={this.state.email} onChange={this.handleKeyPress}/>
-                        <label htmlFor="email" class={this.state.email!=="" && 'active'}>{i18n.labelemail[lang]}</label>
+                      <div id='formstep2' className={this.state.step!==2 && 'hide'}>
+                        <div className="col s12 grey-text text-darken-1 center-align">
+                          {i18n.askfordetails[lang]}
+                        </div>
+                        <div className="input-field col s12">
+                          <textarea id="details" class="materialize-textarea" placeholder={i18n.labeldetails[lang]} value={this.state.details} onChange={this.handleKeyPress}></textarea>
+                        </div>
                       </div>
                     </div>    
                     <div className="center-align">

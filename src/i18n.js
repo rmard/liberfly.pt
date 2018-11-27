@@ -28,6 +28,10 @@ export default  {
     EN: 'You may be compensated up to 600 Euros!',
     PT: 'Tu podes receber até 600 euros de indemnização!',
   },
+  askfordetails: {
+    EN: 'Could you give us more details about the issue?',
+    PT: 'Poderia nos dar detalhes sobre o ocorrido?'
+  },
   labelname: {
     EN: 'Your name',
     PT: 'Teu nome',
@@ -43,6 +47,10 @@ export default  {
   labelemail: {
     EN: 'Email address',
     PT: 'Teu e-mail',
+  },
+  labeldetails: {
+    EN: 'Details (optional)',
+    PT: 'Detalhes (opcional)'
   },
   btnsend: {
     EN: 'CLAIM COMPENSATION',
