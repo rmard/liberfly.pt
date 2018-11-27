@@ -71,7 +71,19 @@ class App extends Component {
           <div id="div-main-logo" className="center-align">
             <img id="mainlogo" src="logo-liberfly.png" alt='LiberFly'/>
             <div className='flag-wrapper z-depth-1' onClick={this.toggleLang}>
-              <img src={`flag-${lang==='EN'?'pt':'uk'}.png`} title='Switch language' alt="Switch language"/>
+              <div className='flags-with-desc'>
+                <img src={`flag-uk.png`} title='Switch language' alt="Switch language"/>
+                <div className={`flag-desc ${lang==='EN' && 'flag-selected'}`}>
+                  EN
+                </div>
+              </div>
+              &nbsp;
+              <div className='flags-with-desc'>
+                <img src={`flag-pt.png`} title='Switch language' alt="Switch language"/>
+                <div className={`flag-desc ${lang==='PT' && 'flag-selected'}`}>
+                  PT
+                </div>
+              </div>
             </div>
           </div>
           <div className="row">
