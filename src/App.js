@@ -106,7 +106,7 @@ class App extends Component {
               <p className="frasedestaque">{i18n.highlighttext[lang]}</p>
             </div>
             <div className="col l6 m6 s12">
-              <div className="card-panel" id="card-form1">
+              <div className="card-panel" id="claim-form">
                 <p className="center-align titulo">{i18n.formtitle[lang]}</p>
                 <div className="form-wrapper">
                   <form autoComplete="off" id="form-contato" className={this.state.success?'hide':''} onSubmit={this.handleSubmit}>
@@ -116,8 +116,8 @@ class App extends Component {
                         appId="262052264452670"
                         autoLoad={true}
                         fields="name,email,picture"
-                        onClick={''}
-                        callback={this.fbCallback} 
+                        onClick=''
+                        callback={(response)=>{this.fbCallback(response)}} 
                         render={renderProps => (
                           <img className='pointer' alt='Continue with Facebook' onClick={renderProps.onClick} src='./fbbutton.png'/>
                         )}/>    
@@ -205,7 +205,19 @@ class App extends Component {
                 <strong>
                 {i18n.abouttext[lang][1]}
                 </strong>
-              </p>             
+              </p>   
+              <div className='features'>
+                {i18n.features[lang].map((f)=>(
+                  <p className='feature'>
+                    <span className='feature-title'>
+                      {f.title}
+                    </span>
+                    <span className='feature-desc'>
+                      {f.desc}
+                    </span>
+                  </p>
+                ))}
+              </div>
             </div>
             <div className='col l2 m1 justify'>
               <div id='about-picture' className='z-depth-1 hide-on-med-and-down'>
@@ -213,6 +225,9 @@ class App extends Component {
             </div>
           </div>       
         </section>
+        {/*
+        <a href="#claim-form" className={`btn btn-large`}>{i18n.btnsend[lang]}</a>
+      */}
         <footer>
           {i18n.siteconstruction[lang]}  
            • <a href="https://liberfly.com.br" target="_blank" rel='noopener noreferrer'>{i18n.braziliansite[lang]} <i className="material-icons">open_in_new</i></a>

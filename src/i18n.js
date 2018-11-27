@@ -56,6 +56,22 @@ export default  {
     EN: 'CLAIM COMPENSATION',
     PT: 'SOLICITAR INDEMNIZAÇÃO!',    
   },  
+  features : {
+    PT: [
+      {title: 'Confiança', desc: 'Experiência satisfatória e única aos clientes'},
+      {title: 'Praticidade', desc: 'Solução de conflitos judiciais, éticos, extra judiciais e administrativos'},
+      {title: 'Flexibilidade', desc: 'Respostas rápidas e resoluções de conflitos eficientes'},
+      {title: 'Traquilidade', desc: 'Equipas supervisionadas por advogados experientes nas áreas contratadas'},
+      {title: 'Acessibilidade', desc: 'Solicitação pelo smartphone, computador ou redes sociais'},
+    ],
+    EN: [
+      {title: 'Flexible', desc: 'Unique experience for our customers'},
+      {title: 'Convenient', desc: 'Judicial and non-judicial conflict solving'},
+      {title: 'Smooth', desc: 'Fast and secure answers'},
+      {title: 'Reliable', desc: 'Teams managed by experient lawyers'},
+      {title: 'Easy', desc: 'Request by smartphone, computer or social networks'},
+    ],
+  },
   step1: {
     EN: ['Submit your claim and', 'documentation'],
     PT: ['Envia tua reclamação e', 'documentos por este site'],
