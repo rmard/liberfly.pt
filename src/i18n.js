@@ -72,6 +72,22 @@ export default  {
       {title: 'Easy', desc: 'Request by smartphone, computer or social networks'},
     ],
   },
+  featureCards: {
+    EN: [
+      {icon: 'language', desc: 'Polyglot team available 24/7'},
+      {icon: 'school', desc: 'Flight issues expert lawyers'},
+      {icon: 'laptop_mac', desc: '100% online - you can claim at your home or work'},
+      {icon: 'library_books', desc: 'Compliance with EU regulations'},
+      {icon: 'money_off', desc: 'FREE! We keep only 30% of the compensation'},
+    ],
+    PT: [
+      {icon: 'language', desc: 'Equipa poliglota e disponível 7 dias por semana'},
+      {icon: 'school', desc: 'Especialistas em mediações com companhias aéreas'},
+      {icon: 'laptop_mac', desc: '100% em linha - sem a necessidade de locomoção'},
+      {icon: 'library_books', desc: 'Obedecendo as regulações do Brasil e da União Europeia'},
+      {icon: 'money_off', desc: 'Sem custos para o cliente, apenas taxa de 30% do valor da indemnização'},
+    ],    
+  },
   step1: {
     EN: ['Submit your claim and', 'documentation'],
     PT: ['Envia tua reclamação e', 'documentos por este site'],

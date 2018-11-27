@@ -163,8 +163,8 @@
     text-align: center;
     color: #174274;
     padding: 30px 0px 0px 0px;
-    margin-top: -20px;
-    background-color: #4097d3;
+    margin-top: -45px;
+    background-color: #b3d5ed;
   }
 
   footer .material-icons {
@@ -220,6 +220,7 @@
     animation-name: clouds;
     animation-duration: 10s;
     animation-iteration-count: infinite;    
+    margin-bottom: -20px;
   }
 
   #about .row {
@@ -240,18 +241,6 @@
     https://unsplash.com/photos/5fNmWej4tAA 
     */
     background-image: url(/helloquence-61189-unsplash.jpg);
-  }
-
-  @media screen and (max-width: 992px) {
-    #about-picture {
-      margin-top: 20px;
-      margin-left: 10px;
-      margin-right: -10px;
-    }
-    #about {
-      background-position: 40% 90%;
-      animation-duration: 60s;
-    }
   }
 
   #badges img {
@@ -330,4 +319,48 @@
     display: inline-block;
     text-align: center;
     */
+  }
+
+  #feature-cards {
+    text-align: center;
+    padding: 0px 15px;
+    line-height: 160px;
+    background-color: #4097d3;
+    background-image: linear-gradient(to bottom, #8dd0ff, #0a74bd);
+  }
+
+  .feature-card {
+    line-height: normal;
+    vertical-align: middle;
+    color: white;
+    width: 180px;
+    height: 150px;
+    background-color: #174274;
+    display: inline-block;
+    margin: -50px 10px 0px 10px;
+  }
+
+  .feature-card i {
+    color: #b3d5ed;
+    font-size: 80px;
+    display: block;
+    text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+  }
+
+  @media screen and (max-width: 992px) {
+    #about-picture {
+      margin-top: 20px;
+      margin-left: 10px;
+      margin-right: -10px;
+    }
+    #about {
+      background-position: 40% 90%;
+      animation-duration: 60s;
+    }
+    #feature-cards {
+      
+    }
+    .feature-card {
+      width: 150px;
+    }
   }

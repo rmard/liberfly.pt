@@ -225,6 +225,14 @@ class App extends Component {
             </div>
           </div>       
         </section>
+        <section id="feature-cards">
+          {i18n.featureCards[lang].map((f)=>(
+            <div className='feature-card z-depth-1'>
+              <i className='material-icons'>{f.icon}</i>
+              {f.desc}
+            </div>            
+          ))}        
+        </section>
         {/*
         <a href="#claim-form" className={`btn btn-large`}>{i18n.btnsend[lang]}</a>
       */}
