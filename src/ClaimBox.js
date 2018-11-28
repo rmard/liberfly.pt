@@ -5,6 +5,7 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 class ClaimBox extends React.Component {
   state = {
     step: 1,
+    lang: 'EN',
     name: '',
     email: '',
     socials: '',
@@ -12,6 +13,20 @@ class ClaimBox extends React.Component {
     details: '',
     sending: false,
     success: false,
+    affiliate: '',
+  }  
+  componentDidMount = () => {
+    if(this.props.match && this.props.match.params.affiliateId) {
+      this.setState({affiliate: this.props.match.params.affiliateId});
+    }
+    if(this.props.lang)
+      this.setState({lang: this.props.lang});
+    else {
+      let browserLang = navigator.language || navigator.userLanguage;
+      browserLang = browserLang.toUpperCase().substring(0,2);
+      if(browserLang==='PT')
+        this.setState({lang: 'PT'});
+    }
   }  
   fbCallback = (response) => {
     console.log("statusChangeCallback", response);
@@ -42,6 +57,7 @@ class ClaimBox extends React.Component {
     formdata.append('celular', this.state.socials + " " + this.state.phone);
     formdata.append('email', this.state.email);
     formdata.append('details', this.state.details);
+    formdata.append('affiliate', this.state.affiliate);
     fetch("/processa.php", {
       method: "POST",
       body: formdata
@@ -51,14 +67,14 @@ class ClaimBox extends React.Component {
       if(res.status===200)
         this.setState({success: true});
       else
-        alert(i18n.posterror[this.props.lang]);
+        alert(i18n.posterror[this.state.lang]);
     })
     .catch((res)=>{
       this.setState({sending: false});
     })
   }  
   render() {
-    var lang = this.props.lang;
+    var lang = this.state.lang;
     return (
       <div className="card-panel" id="claim-form">
         <p className="center-align titulo">{i18n.formtitle[lang]}</p>
@@ -73,7 +89,7 @@ class ClaimBox extends React.Component {
                 onClick=''
                 callback={(response)=>{this.fbCallback(response)}} 
                 render={renderProps => (
-                  <img className='pointer' alt='Continue with Facebook' onClick={renderProps.onClick} src='./fbbutton.png'/>
+                  <img className='pointer' alt='Continue with Facebook' onClick={renderProps.onClick} src='/fbbutton.png'/>
                 )}/>    
               ):''}
             </div>
