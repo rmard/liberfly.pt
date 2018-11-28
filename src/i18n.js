@@ -67,26 +67,26 @@ export default  {
   features : {
     PT: [
       {title: 'Confiança', desc: 'Experiência satisfatória e única aos clientes'},
-      {title: 'Praticidade', desc: 'Solução de conflitos judiciais, éticos, extra judiciais e administrativos'},
+      {title: 'Praticidade', desc: 'Solução de conflitos judiciais, éticos, extrajudiciais e administrativos'},
       {title: 'Flexibilidade', desc: 'Respostas rápidas e resoluções de conflitos eficientes'},
       {title: 'Traquilidade', desc: 'Equipas supervisionadas por advogados experientes nas áreas contratadas'},
       {title: 'Acessibilidade', desc: 'Solicitação pelo smartphone, computador ou redes sociais'},
     ],
     EN: [
       {title: 'Flexible', desc: 'Unique experience for our customers'},
-      {title: 'Convenient', desc: 'Judicial and non-judicial conflict solving'},
+      {title: 'Convenient', desc: 'Judicial and non judicial dispute resolution'},
       {title: 'Smooth', desc: 'Fast and secure answers'},
       {title: 'Reliable', desc: 'Teams managed by experient lawyers'},
-      {title: 'Easy', desc: 'Request by smartphone, computer or social networks'},
+      {title: 'Easy', desc: 'Claim by smartphone, computer or social media'},
     ],
   },
   featureCards: {
     EN: [
       {icon: 'language', desc: 'Polyglot team available 24/7'},
-      {icon: 'school', desc: 'Flight issues expert lawyers'},
-      {icon: 'laptop_mac', desc: '100% online - you can claim at your home or work'},
-      {icon: 'library_books', desc: 'Compliance with EU regulations'},
-      {icon: 'money_off', desc: 'FREE! We keep only 30% of the compensation'},
+      {icon: 'school', desc: 'Expert lawyers specialized in mediation and flight issues'},
+      {icon: 'laptop_mac', desc: '100% Online: claim at your home or work'},
+      {icon: 'library_books', desc: 'In compliance with EU regulations'},
+      {icon: 'money_off', desc: 'FREE! We only keep a percentage of the compensation in positive results'},
     ],
     PT: [
       {icon: 'language', desc: 'Equipa poliglota e disponível 7 dias por semana'},
