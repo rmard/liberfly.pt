@@ -95,8 +95,20 @@ class ClaimBox extends React.Component {
                 )}/>    
               ):''}
               <div className='grey-text text-darken-1'>
-                {this.props.embedded === true && i18n.formhelperembedded[lang]}
-              </div>              
+                {this.props.embedded === true && ( 
+                  <div className="soc" data-buttoncolor="#174274" data-iconcolor="#EEE">
+                    <a href="https://facebook.com/liberflypt" className="soc-facebook" title="Facebook" target='_blank' rel="noopener noreferrer"></a>
+                    <a href="https://instagram.com/liberflypt" className="soc-instagram" title="Instagram" target='_blank' rel="noopener noreferrer"></a>
+                    <a href="https://api.whatsapp.com/send?phone=+552799635-8409&text=" className="soc-whatsapp" title="WhatsApp" target='_blank' rel="noopener noreferrer"></a>
+                    <a href="https://liberfly.pt" className="soc-website" title="Site" target='_blank' rel="noopener noreferrer"></a>
+                  </div>
+                )}
+              </div>   
+              <div className='grey-text text-darken-1'>
+                {this.props.embedded === true && 
+                  i18n.formhelperembedded[lang]
+                }
+              </div>                   
             </div>
             <div className="row">
               <div id='formstep1' className={this.state.step!==1 && 'hide'}>
