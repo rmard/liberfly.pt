@@ -14,11 +14,11 @@ export default  {
   },
   formtitleembedded: {
     EN: 'FLIGHT ISSUES IN EUROPE?',
-    PT: 'PROBLEMAS DE VOO NA EUROPA?',
+    PT: 'PROBLEMAS DE VOO EM EUROPA?',
   }, 
   formhelperembedded: {
     EN: 'We are partners with Liberfly, startup focused on seeking compensation for passengers who have had problems with airlines. Contact them!',
-    PT: 'Somos parceiros da Liberfly, startup focada em buscar indemnização para passageiros que tiveram problemas com as companhias aéreas. Contate-os!',
+    PT: 'Somos parceiros da Liberfly, startup especializada em buscar indemnização para passageiros que sofreram problemas com companhias aéreas. Tiveste algum problema nos últimos 6 anos? Contacte-os!',
   },    
   issue1: {
     EN: 'Flight cancellation',
