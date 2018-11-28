@@ -16,8 +16,8 @@ class ClaimBox extends React.Component {
     affiliate: '',
   }  
   componentDidMount = () => {
-    if(this.props.match && this.props.match.params.affiliateId) {
-      this.setState({affiliate: this.props.match.params.affiliateId});
+    if(this.props.affiliate) {
+      this.setState({affiliate: this.props.affiliate});
     }
     if(this.props.lang)
       this.setState({lang: this.props.lang});
@@ -77,7 +77,9 @@ class ClaimBox extends React.Component {
     var lang = this.state.lang;
     return (
       <div className="card-panel" id="claim-form">
-        <p className="center-align titulo">{i18n.formtitle[lang]}</p>
+        <p className="center-align titulo">
+        {this.props.embedded === true ? i18n.formtitleembedded[lang] : i18n.formtitle[lang]}
+        </p>
         <div className="form-wrapper">
           <form autoComplete="off" id="form-contato" className={this.state.success?'hide':''} onSubmit={this.handleSubmit}>
             <div className="center-align">
@@ -92,6 +94,9 @@ class ClaimBox extends React.Component {
                   <img className='pointer' alt='Continue with Facebook' onClick={renderProps.onClick} src='/fbbutton.png'/>
                 )}/>    
               ):''}
+              <div className='grey-text text-darken-1'>
+                {this.props.embedded === true && i18n.formhelperembedded[lang]}
+              </div>              
             </div>
             <div className="row">
               <div id='formstep1' className={this.state.step!==1 && 'hide'}>

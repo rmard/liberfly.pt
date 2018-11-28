@@ -12,6 +12,14 @@ export default  {
     EN: 'CLAIM YOUR COMPENSATION NOW',
     PT: 'SOLICITA AGORA TUA INDEMNIZAÇÃO',
   },
+  formtitleembedded: {
+    EN: 'FLIGHT ISSUES IN EUROPE?',
+    PT: 'PROBLEMAS DE VOO NA EUROPA?',
+  }, 
+  formhelperembedded: {
+    EN: 'We are partners with Liberfly, startup focused on seeking compensation for passengers who have had problems with airlines. Contact them!',
+    PT: 'Somos parceiros da Liberfly, startup focada em buscar indemnização para passageiros que tiveram problemas com as companhias aéreas. Contate-os!',
+  },    
   issue1: {
     EN: 'Flight cancellation',
     PT: 'Cancelamento de voo',

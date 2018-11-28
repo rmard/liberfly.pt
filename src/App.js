@@ -24,7 +24,11 @@ class App extends Component {
     var lang = this.state.lang;
     return (
       <div>
-        <Route path="/claimbox/:affiliateId" component={ClaimBox}/>
+        <Route path="/claimbox/:affiliateId" render={(obj)=>(
+            <ClaimBox 
+              embedded={true}
+              affiliate={obj.match.params.affiliateId}/>
+          )} />
         <Route exact path="/" render={()=>(
           <div className="App">
             <section id="sec1">
