@@ -227,7 +227,7 @@ class App extends Component {
         </section>
         <section id="feature-cards">
           {i18n.featureCards[lang].map((f)=>(
-            <div className='feature-card z-depth-1'>
+            <div className='feature-card'>
               <i className='material-icons'>{f.icon}</i>
               {f.desc}
             </div>            

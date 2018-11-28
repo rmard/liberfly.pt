@@ -163,7 +163,7 @@
     text-align: center;
     color: #174274;
     padding: 30px 0px 0px 0px;
-    margin-top: -45px;
+    margin-top: 0px;
     background-color: #b3d5ed;
   }
 
@@ -325,8 +325,7 @@
     text-align: center;
     padding: 0px 15px;
     line-height: 160px;
-    background-color: #4097d3;
-    background-image: linear-gradient(to bottom, #8dd0ff, #0a74bd);
+    background-color: #174274;
   }
 
   .feature-card {
@@ -337,7 +336,7 @@
     height: 150px;
     background-color: #174274;
     display: inline-block;
-    margin: -50px 10px 0px 10px;
+    margin: 0px 10px 0px 10px;
   }
 
   .feature-card i {
