@@ -5,7 +5,6 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 class ClaimBox extends React.Component {
   state = {
     step: 1,
-    lang: 'EN',
     name: '',
     email: '',
     socials: '',
@@ -18,14 +17,6 @@ class ClaimBox extends React.Component {
   componentDidMount = () => {
     if(this.props.affiliate) {
       this.setState({affiliate: this.props.affiliate});
-    }
-    if(this.props.lang)
-      this.setState({lang: this.props.lang});
-    else {
-      let browserLang = navigator.language || navigator.userLanguage;
-      browserLang = browserLang.toUpperCase().substring(0,2);
-      if(browserLang==='PT')
-        this.setState({lang: 'PT'});
     }
   }  
   fbCallback = (response) => {
@@ -74,7 +65,15 @@ class ClaimBox extends React.Component {
     })
   }  
   render() {
-    var lang = this.state.lang;
+    var lang = 'EN';
+    if(this.props.lang)
+      lang = this.props.lang;
+    else {
+      let browserLang = navigator.language || navigator.userLanguage;
+      browserLang = browserLang.toUpperCase().substring(0,2);
+      if(browserLang==='PT')
+        lang = 'PT';
+    }    
     return (
       <div className="card-panel" id="claim-form">
         <p className="center-align titulo">
