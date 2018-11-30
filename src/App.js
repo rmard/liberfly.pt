@@ -3,16 +3,23 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import i18n from './i18n';
 import ClaimBox from './ClaimBox';
+import queryString from 'query-string';
 
 class App extends Component {
   state = {
     lang: 'EN',
+    affiliate: ''
   }
   componentDidMount = () => {
     let browserLang = navigator.language || navigator.userLanguage;
     browserLang = browserLang.toUpperCase().substring(0,2);
     if(browserLang==='PT')
       this.setState({lang: 'PT'});
+    if(window.location) {
+      const query = queryString.parse(window.location.search);
+      if(query.afl)
+        this.setState({affiliate: query.afl});    
+    }    
   }
   toggleLang = () => {
     this.setState((prevState)=>({
@@ -63,7 +70,10 @@ class App extends Component {
                   <p className="frasedestaque">{i18n.highlighttext[lang]}</p>
                 </div>
                 <div className="col l6 m6 s12 claimbox-wrapper">
-                  <ClaimBox lang={lang}/>
+                  <ClaimBox 
+                    lang={lang}
+                    affiliate={this.state.affiliate}
+                  />
                 </div>
               </div>
             </section>
