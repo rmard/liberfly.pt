@@ -108,6 +108,13 @@
     margin-top: -20px;
   }
 
+  #claim-form .titulo .logo {
+    height: 50px;
+    line-height: 50px;
+    vertical-align: -15%;
+    margin-right: 20px;
+  }
+
   .claimbox-wrapper #claim-form {
     margin-top: 20px;
   }
@@ -372,7 +379,7 @@
 
   .soc-website {
     background-image: url(/www.png);
-    background-size: 100%;
+    background-size: 80%;
     background-repeat: no-repeat;
     background-position: 50%;
   }  

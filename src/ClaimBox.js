@@ -84,6 +84,9 @@ class ClaimBox extends React.Component {
     return (
       <div className="card-panel" id="claim-form">
         <p className="center-align titulo" style={{backgroundColor: `#${this.state.color}`}}>
+        {this.props.embedded === true && 
+          <img className='logo' src='https://liberfly.pt/logo-liberfly2.png'/>
+        }        
         {this.props.embedded === true ? 
           i18n.formtitleembedded[lang] 
           : i18n.formtitle[lang]}
@@ -114,11 +117,11 @@ class ClaimBox extends React.Component {
                   <input id="name" type="text" className="validate" required value={this.state.name} onChange={this.handleKeyPress}/>
                   <label htmlFor="name" class={this.state.name!=="" && 'active'}>{i18n.labelname[lang]}</label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s7">
                   <input id="socials" type="text" className="validate" required value={this.state.socials} onChange={this.handleKeyPress}/>
                   <label htmlFor="socials">{i18n.labelsocials[lang]}</label>
                 </div>                        
-                <div className="input-field col s6">
+                <div className="input-field col s5">
                   <input id="phone" type="text" className="validate" required value={this.state.phone} onChange={this.handleKeyPress}/>
                   <label htmlFor="phone">{i18n.labelphone[lang]}</label>
                 </div>                    
