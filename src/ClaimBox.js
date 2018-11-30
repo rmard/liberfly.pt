@@ -82,7 +82,7 @@ class ClaimBox extends React.Component {
         lang = 'PT';
     }    
     return (
-      <div className="card-panel" id="claim-form">
+      <div className={this.props.embedded === true ? 'embedded card-panel' : 'card-panel' } id="claim-form">
         <p className="center-align titulo" style={{backgroundColor: `#${this.state.color}`}}>
         {this.props.embedded === true && 
           <img className='logo' src='https://liberfly.pt/logo-liberfly2.png'/>
