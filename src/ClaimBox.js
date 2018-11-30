@@ -1,9 +1,11 @@
 import React from 'react';
 import i18n from './i18n';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import queryString from 'query-string';
 
 class ClaimBox extends React.Component {
   state = {
+    color: '4097d3',    
     step: 1,
     name: '',
     email: '',
@@ -17,6 +19,11 @@ class ClaimBox extends React.Component {
   componentDidMount = () => {
     if(this.props.affiliate) {
       this.setState({affiliate: this.props.affiliate});
+    }
+    if(this.props.location) {
+      const query = queryString.parse(this.props.location.search);
+      if(query.color)
+        this.setState({color: query.color});    
     }
   }  
   fbCallback = (response) => {
@@ -76,8 +83,10 @@ class ClaimBox extends React.Component {
     }    
     return (
       <div className="card-panel" id="claim-form">
-        <p className="center-align titulo">
-        {this.props.embedded === true ? i18n.formtitleembedded[lang] : i18n.formtitle[lang]}
+        <p className="center-align titulo" style={{backgroundColor: `#${this.state.color}`}}>
+        {this.props.embedded === true ? 
+          i18n.formtitleembedded[lang] 
+          : i18n.formtitle[lang]}
         </p>
         <div className="form-wrapper">
           <form autoComplete="off" id="form-contato" className={this.state.success?'hide':''} onSubmit={this.handleSubmit}>
@@ -92,17 +101,7 @@ class ClaimBox extends React.Component {
                 render={renderProps => (
                   <img className='pointer' alt='Continue with Facebook' onClick={renderProps.onClick} src='/fbbutton.png'/>
                 )}/>    
-              ):''}
-              <div className='grey-text text-darken-1'>
-                {this.props.embedded === true && ( 
-                  <div className="soc" data-buttoncolor="#174274" data-iconcolor="#EEE">
-                    <a href="https://facebook.com/liberflypt" className="soc-facebook" title="Facebook" target='_blank' rel="noopener noreferrer"></a>
-                    <a href="https://instagram.com/liberflypt" className="soc-instagram" title="Instagram" target='_blank' rel="noopener noreferrer"></a>
-                    <a href="https://api.whatsapp.com/send?phone=+351932555007&text=" className="soc-whatsapp" title="WhatsApp" target='_blank' rel="noopener noreferrer"></a>
-                    <a href="https://liberfly.pt" className="soc-website" title="Site" target='_blank' rel="noopener noreferrer"></a>
-                  </div>
-                )}
-              </div>   
+              ):''}  
               <div className='grey-text text-darken-1'>
                 {this.props.embedded === true && 
                   i18n.formhelperembedded[lang]
@@ -138,8 +137,19 @@ class ClaimBox extends React.Component {
               </div>
             </div>    
             <div className="center-align">
-              <button id="btn-enviar" className={`btn btn-large ${this.state.sending?'disabled':''}`}>{i18n.btnsend[lang]}</button>
-            </div>          
+              <button id="btn-enviar" className={`btn btn-large ${this.state.sending?'disabled':''}`} style={{backgroundColor: `#${this.state.color}`}}>{i18n.btnsend[lang]}</button>
+            </div>  
+            <div className='grey-text text-darken-1 center-align'>
+              {this.props.embedded === true && ( 
+                <div className="soc" data-buttoncolor="#174274" data-iconcolor="#EEE">
+                  <br/>
+                  <a href="https://facebook.com/liberflypt" className="soc-facebook" title="Facebook" target='_blank' rel="noopener noreferrer"></a>
+                  <a href="https://instagram.com/liberflypt" className="soc-instagram" title="Instagram" target='_blank' rel="noopener noreferrer"></a>
+                  <a href="https://api.whatsapp.com/send?phone=+351932555007&text=" className="soc-whatsapp" title="WhatsApp" target='_blank' rel="noopener noreferrer"></a>
+                  <a href="https://liberfly.pt" className="soc-website" title="Site" target='_blank' rel="noopener noreferrer"></a>
+                </div>
+              )}
+            </div>                     
           </form>
           <div id="sucesso-form-submit" className={this.state.success?'':'hide'}>
             <div className="green lighten-2 z-depth-1">

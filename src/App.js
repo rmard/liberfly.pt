@@ -26,6 +26,7 @@ class App extends Component {
       <div>
         <Route path="/claimbox/:affiliateId" render={(obj)=>(
             <ClaimBox 
+              location={window.location}
               embedded={true}
               affiliate={obj.match.params.affiliateId}/>
           )} />
