@@ -104,9 +104,15 @@ class ClaimBox extends React.Component {
                 )}/>    
               ):''}  
               <div className='grey-text text-darken-1'>
-                {this.props.embedded === true && 
-                  i18n.formhelperembedded[lang]
-                }
+                {(this.props.embedded === true) && (
+                  <div>
+                    {i18n.maintext[lang]}
+                    <br/>
+                     • {i18n.issue1[lang]} • {i18n.issue2[lang]} • {i18n.issue3[lang]}
+                    <br/>
+                    {i18n.highlighttext[lang]}
+                  </div>
+                )}              
               </div>                   
             </div>
             <div className="row">
