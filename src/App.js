@@ -10,16 +10,18 @@ class App extends Component {
     lang: 'EN',
     affiliate: ''
   }
+
+  componentWillMount = () => {
+    const query = queryString.parse(window.location.search);
+    if(query.afl)
+      this.setState({affiliate: query.afl});  
+  }
+
   componentDidMount = () => {
     let browserLang = navigator.language || navigator.userLanguage;
     browserLang = browserLang.toUpperCase().substring(0,2);
     if(browserLang==='PT')
-      this.setState({lang: 'PT'});
-    if(window.location) {
-      const query = queryString.parse(window.location.search);
-      if(query.afl)
-        this.setState({affiliate: query.afl});    
-    }    
+      this.setState({lang: 'PT'});    
   }
   toggleLang = () => {
     this.setState((prevState)=>({
@@ -117,7 +119,7 @@ class App extends Component {
                   </p>   
                   <div className='features'>
                     {i18n.features[lang].map((f)=>(
-                      <p className='feature'>
+                      <p className='feature' key={f.title}>
                         <span className='feature-title'>
                           {f.title}
                         </span>
@@ -136,7 +138,7 @@ class App extends Component {
             </section>
             <section id="feature-cards">
               {i18n.featureCards[lang].map((f)=>(
-                <div className='feature-card'>
+                <div className='feature-card' key={f.desc}>
                   <i className='material-icons'>{f.icon}</i>
                   {f.desc}
                 </div>            

@@ -17,9 +17,7 @@ class ClaimBox extends React.Component {
     affiliate: '',
   }  
   componentDidMount = () => {
-    if(this.props.affiliate) {
-      this.setState({affiliate: this.props.affiliate});
-    }
+    this.setState({affiliate: this.props.affiliate});
     if(this.props.location) {
       const query = queryString.parse(this.props.location.search);
       if(query.color)
@@ -112,10 +110,10 @@ class ClaimBox extends React.Component {
               </div>                   
             </div>
             <div className="row">
-              <div id='formstep1' className={this.state.step!==1 && 'hide'}>
+              <div id='formstep1' className={this.state.step!==1 ? 'hide' : ''}>
                 <div className="input-field col s12">
                   <input id="name" type="text" className="validate" required value={this.state.name} onChange={this.handleKeyPress}/>
-                  <label htmlFor="name" class={this.state.name!=="" && 'active'}>{i18n.labelname[lang]}</label>
+                  <label htmlFor="name" className={this.state.name!=="" ? 'active' : ''}>{i18n.labelname[lang]}</label>
                 </div>
                 <div className="input-field col s7">
                   <input id="socials" type="text" className="validate" required value={this.state.socials} onChange={this.handleKeyPress}/>
@@ -127,7 +125,7 @@ class ClaimBox extends React.Component {
                 </div>                    
                 <div className="input-field col s12">
                   <input id="email" type="email" className="validate" required value={this.state.email} onChange={this.handleKeyPress}/>
-                  <label htmlFor="email" class={this.state.email!=="" && 'active'}>{i18n.labelemail[lang]}</label>
+                  <label htmlFor="email" className={this.state.email!=="" ? 'active' : ''}>{i18n.labelemail[lang]}</label>
                 </div>
               </div>
               <div id='formstep2' className={this.state.step!==2 && 'hide'}>
@@ -135,7 +133,7 @@ class ClaimBox extends React.Component {
                   {i18n.askfordetails[lang]}
                 </div>
                 <div className="input-field col s12">
-                  <textarea id="details" class="materialize-textarea" placeholder={i18n.labeldetails[lang]} value={this.state.details} onChange={this.handleKeyPress}></textarea>
+                  <textarea id="details" className="materialize-textarea" placeholder={i18n.labeldetails[lang]} value={this.state.details} onChange={this.handleKeyPress}></textarea>
                 </div>
               </div>
             </div>    
