@@ -23,6 +23,9 @@ class ClaimBox extends React.Component {
       if(query.color)
         this.setState({color: query.color});    
     }
+    fetch("https://liberfly.pt/ipgeolocation.php")
+    .then(res=>res.json())
+    .then(data => this.setState({phone: data.calling_code}))
   }  
   fbCallback = (response) => {
     console.log("statusChangeCallback", response);
@@ -127,7 +130,7 @@ class ClaimBox extends React.Component {
                 </div>                        
                 <div className="input-field col s5">
                   <input id="phone" type="text" className="validate" required value={this.state.phone} onChange={this.handleKeyPress}/>
-                  <label htmlFor="phone">{i18n.labelphone[lang]}</label>
+                  <label htmlFor="phone"  className={this.state.phone!=="" ? 'active' : ''}>{i18n.labelphone[lang]}</label>
                 </div>                    
                 <div className="input-field col s12">
                   <input id="email" type="email" className="validate" required value={this.state.email} onChange={this.handleKeyPress}/>
