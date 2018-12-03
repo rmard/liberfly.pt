@@ -318,6 +318,15 @@
       margin-top: 10px;
       width: 250px;
     }
+    .form-wrapper {
+      padding: 0px;
+    }
+  }
+  @media only screen and (max-width: 350px) {
+    .col.s7,
+    .col.s5 {
+      width: 100%!important;
+    }
   }
   .frasedestaque {
     font-weight: bolder;
