@@ -45,8 +45,8 @@ export default  {
     PT: 'Teu nome',
   },
   labelsocials: {
-    EN: 'Social network (link)',
-    PT: 'Rede social (link)',
+    EN: 'Your Instagram and/or Facebook profile',
+    PT: 'Teu perfil no Instagram e/ou Facebook',
   },  
   labelphone: {
     EN: 'Phone number',
